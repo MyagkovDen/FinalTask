@@ -2,8 +2,18 @@
 int userNumber = GetNumberFromUser("Введите количество строк в массиве: ", "Ошибка ввода!");
 string[] array = new string[userNumber];
 FillArray(userNumber, array);
+PrintArray(array);
 
 
+void PrintArray (string [] arr)
+{
+    Console.Write("[");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write($"\"{arr[i]}\", ");
+    }
+    Console.Write("]");
+}
 
 void FillArray(int number, string[] arr)
 {
