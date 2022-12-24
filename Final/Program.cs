@@ -9,12 +9,13 @@
 
 Console.Clear();
 int userNumber = GetNumberFromUser("Введите количество строк в массиве: ", "Ошибка ввода!");
-string[] array = new string[userNumber];
-FillArray(userNumber, array);
-PrintArray(array);
-string[] collection = new string[FindLength(array)];
-GetArray(array, collection);
-PrintArray(collection);
+string[] initialArray = new string[userNumber];
+FillArray(userNumber, initialArray);
+PrintArray(initialArray);
+Console.Write(" => ");
+string[] resultArray = new string[FindLength(initialArray)];
+GetArray(initialArray, resultArray);
+PrintArray(resultArray);
 
 void GetArray(string[] arr, string[] col)
 {
@@ -42,10 +43,11 @@ int FindLength(string[] arr)
 void PrintArray(string[] arr)
 {
     Console.Write("[");
-    for (int i = 0; i < arr.Length; i++)
+    for (int i = 0; i < arr.Length - 1; i++)
     {
         Console.Write($"\"{arr[i]}\", ");
     }
+    Console.Write($"\"{arr[arr.Length - 1]}\"");
     Console.Write("]");
 }
 
