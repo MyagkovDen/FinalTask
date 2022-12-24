@@ -1,11 +1,45 @@
-﻿Console.Clear();
+﻿/* Написать программу, которая из имеющегося массива строк формирует новый массив из строк, длина которых меньше, 
+либо равна 3 символам. Первоначальный массив можно ввести с клавиатуры, либо задать на старте выполнения алгоритма. 
+При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
+
+Примеры:
+[“Hello”, “2”, “world”, “:-)”] → [“2”, “:-)”]
+[“1234”, “1567”, “-2”, “computer science”] → [“-2”]
+[“Russia”, “Denmark”, “Kazan”] → [] */
+
+Console.Clear();
 int userNumber = GetNumberFromUser("Введите количество строк в массиве: ", "Ошибка ввода!");
 string[] array = new string[userNumber];
 FillArray(userNumber, array);
 PrintArray(array);
+string[] collection = new string[FindLength(array)];
+GetArray(array, collection);
+PrintArray(collection);
 
+void GetArray(string[] arr, string[] col)
+{
+    int j = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3)
+        {
+            col[j] = arr[i];
+            j++;
+        }
+    }
+}
 
-void PrintArray (string [] arr)
+int FindLength(string[] arr)
+{
+    int count = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3) count++;
+    }
+    return count;
+}
+
+void PrintArray(string[] arr)
 {
     Console.Write("[");
     for (int i = 0; i < arr.Length; i++)
