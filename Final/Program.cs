@@ -10,7 +10,7 @@
 Console.Clear();
 int userNumber = GetNumberFromUser("Введите количество строк в массиве: ", "Ошибка ввода!");
 string[] initialArray = new string[userNumber];
-FillArray(userNumber, initialArray);
+FillArray(initialArray);
 PrintArray(initialArray);
 Console.Write(" => ");
 string[] resultArray = new string[FindLength(initialArray)];
@@ -51,9 +51,9 @@ void PrintArray(string[] arr)
     Console.Write("]");
 }
 
-void FillArray(int number, string[] arr)
+void FillArray(string[] arr)
 {
-    for (int i = 0; i < number; i++)
+    for (int i = 0; i < arr.Length; i++)
     {
         Console.Write("Введите строку: ");
         arr[i] = Console.ReadLine();
